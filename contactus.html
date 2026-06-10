@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-bar">
+        <div class="brand">
+          <div class="brand-placeholder">
+            <img src="logo/logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 65px;" />
+          </div>
+          <div class="brand-title">QMORZ</div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-panel">
+      <h1>RING THE BELL...🔔</h1>
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Enter your name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required pattern="[A-Za-z ]+" title="Only letters and spaces are allowed" />
+
+        <label for="email">Enter your mail</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com" required />
+
+        <label for="phone">Enter your Phone number</label>
+        <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+
+        <label for="message">Enter your message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>QMORZ</h3>
+          <p>Delivering cinematic production, reel shooting, and creative visuals for brands that want to stand out.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@qmorz.com">info@qmorz.com</a></li>
+            <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">&copy; 2026 QMORZ. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
