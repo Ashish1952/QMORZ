@@ -366,6 +366,69 @@ footer .footer-note {
   font-size: 0.95rem;
 }
 
+.form-panel {
+  max-width: 760px;
+  margin: 80px auto 120px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+}
+
+.form-panel h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  margin-bottom: 26px;
+  color: var(--accent-color);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: rgba(245, 226, 161, 0.92);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 180px;
+}
+
+.contact-form button {
+  background: var(--accent-color);
+  color: #121018;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  background: #c79726;
+}
+
+@media (max-width: 760px) {
+  .form-panel {
+    margin: 60px auto 80px;
+    padding: 28px;
+  }
+}
+
 @media (max-width: 950px) {
   .hero {
     grid-template-columns: 1fr;
