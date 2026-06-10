@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QMORZ | FAQ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-bar">
+        <div class="brand">
+          <div class="brand-placeholder">
+            <img src="logo/logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 65px;" />
+          </div>
+          <div class="brand-title">QMORZ</div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="faq-section">
+      <div class="section-intro">
+        <span class="section-tag">FAQ</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>Find quick answers about our video editing, pricing, and how to work with us.</p>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>WHAT WORK WE DO ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We edit videos like Reels, Short Video, Cinematic Video, clips, shoot happiness moments and your success.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>WHAT DOES IT COST?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            It depends on your project — message us and we'll tell you details.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>HOW I CAN TALK WITH YOU?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Send us a message through the contact form, email us at info@qmorz.com, or call +91 99999 99999.
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>QMORZ</h3>
+          <p>Delivering cinematic production, reel shooting, and creative visuals for brands that want to stand out.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@qmorz.com">info@qmorz.com</a></li>
+            <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">&copy; 2026 QMORZ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = item.classList.toggle('open');
+
+        if (isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '-';
+        } else {
+          answer.style.maxHeight = '0px';
+          icon.textContent = '+';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+/* Root variables */
 :root {
   --bg-color: #121018;
   --accent-color: #d4af37;
@@ -6,12 +7,14 @@
   --border-color: rgba(212, 175, 55, 0.25);
 }
 
+/* Global reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Body styles */
 body {
   min-height: 100vh;
   background: radial-gradient(circle at top left, #2f243d 0%, #121018 55%);
@@ -19,6 +22,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header / navigation */
 header {
   position: sticky;
   top: 0;
@@ -88,6 +92,7 @@ nav a:focus {
   color: var(--accent-color);
 }
 
+/* Hero section */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -146,6 +151,7 @@ nav a:focus {
   color: var(--text-color);
 }
 
+/* Hero callout */
 .hero-copy .callout {
   display: inline-flex;
   align-items: center;
@@ -225,6 +231,7 @@ nav a:focus {
   font-size: 0.95rem;
 }
 
+/* Services section */
 .services {
   padding: 80px 0;
 }
@@ -261,6 +268,7 @@ nav a:focus {
   gap: 24px;
 }
 
+/* Service cards */
 .service-card {
   background: var(--panel-color);
   border: 1px solid rgba(212, 175, 55, 0.16);
@@ -279,6 +287,22 @@ nav a:focus {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
 }
 
+/* First service card - rounded circles on corners */
+.service-card:nth-child(1) {
+  border-radius: 32px;
+}
+
+/* Second service card - asymmetric rounded corners */
+.service-card:nth-child(2) {
+  border-radius: 12px 32px 12px 32px;
+}
+
+/* Third service card - polygon clip-path */
+.service-card:nth-child(3) {
+  border-radius: 24px 8px 24px 8px;
+  clip-path: polygon(2% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%, 0% 2%);
+}
+
 .service-card h3 {
   margin: 0;
   font-size: 1.4rem;
@@ -291,6 +315,7 @@ nav a:focus {
   color: rgba(245, 226, 161, 0.9);
 }
 
+/* Service button */
 .service-button {
   margin-top: auto;
   align-self: flex-start;
@@ -309,6 +334,7 @@ nav a:focus {
   color: #121018;
 }
 
+/* Footer */
 footer {
   padding: 48px 0;
   background: rgba(18, 16, 24, 0.95);
@@ -366,6 +392,7 @@ footer .footer-note {
   font-size: 0.95rem;
 }
 
+/* Contact form section */
 .form-panel {
   max-width: 760px;
   margin: 80px auto 120px;
@@ -422,6 +449,166 @@ footer .footer-note {
   background: #c79726;
 }
 
+/* FAQ section */
+.faq-section {
+  padding: 80px 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.faq-section .section-intro {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.faq-section .section-intro h1 {
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  color: var(--accent-color);
+  margin-top: 18px;
+}
+
+.faq-section .faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 22px 30px;
+  color: var(--text-color);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question span {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.faq-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--accent-color);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 30px;
+  color: rgba(245, 226, 161, 0.92);
+  transition: max-height 0.28s ease;
+  line-height: 1.8;
+}
+
+/* FAQ open state */
+.faq-item.open .faq-answer {
+  padding: 18px 30px 26px;
+}
+
+.brand-carousel {
+  padding: 80px 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.brand-carousel .section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--accent-color);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* Brand carousel section */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 10px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+}
+
+.brand-card {
+  min-width: 220px;
+  flex: 0 0 220px;
+  height: 180px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  display: grid;
+  place-items: center;
+  color: rgba(245, 226, 161, 0.95);
+  font-size: 1rem;
+  scroll-snap-align: start;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px;
+}
+
+.brand-card img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(212, 175, 55, 0.16);
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-btn.left {
+  left: 8px;
+}
+
+.carousel-btn.right {
+  right: 8px;
+}
+
+.carousel-btn:hover {
+  background: rgba(212, 175, 55, 0.25);
+}
+
+/* Responsive media queries */
 @media (max-width: 760px) {
   .form-panel {
     margin: 60px auto 80px;

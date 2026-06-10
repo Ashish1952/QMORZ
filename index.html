@@ -25,7 +25,7 @@
             <li><a href="#hire">Hire</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#faq">FAQ'S</a></li>
+            <li><a href="faq.html">FAQ</a></li>
           </ul>
         </nav>
       </div>
@@ -89,6 +89,28 @@
         </article>
       </div>
     </section>
+
+    <!-- Brand Carousel -->
+    <section class="brand-carousel">
+      <div class="section-header">
+        <h2>Brands I'm working with:</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" type="button" aria-label="Scroll left">‹</button>
+        <div class="carousel-track">
+          <div class="brand-card"><img src="skyars_logo-removebg.png" alt="Skyars brand logo" /></div>
+          <div class="brand-card"><img src="gm.png" alt="GMIU brand logo" /></div>
+          <div class="brand-card"><img src="bela.png" alt="Bela Fashion brand logo" /></div>
+          <div class="brand-card"><img src="culture.png" alt="Culture Clothing brand logo" /></div>
+          <div class="brand-card"><img src="ranisha.png" alt="Ranishaa brand logo" /></div>
+          <div class="brand-card"><img src="satis_rmbg.png" alt="Satisfashion brand logo" /></div>
+          <div class="brand-card"><img src="sat.png" alt="Satnam Tea brand logo" /></div>
+          <div class="brand-card"><img src="varni-removebg-preview.png" alt="Varni brand logo" /></div>
+          <div class="brand-card"><img src="jwel.png" alt="Shubhlaxmi Jewel brand logo" /></div>
+        </div>
+        <button class="carousel-btn right" type="button" aria-label="Scroll right">›</button>
+      </div>
+    </section>
   </main>
   
   <!-- Footer -->
@@ -107,6 +129,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="#aboutus">About Us</a></li>
           </ul>
         </div>
@@ -122,5 +145,40 @@
       <p class="footer-note">&copy; 2026 QMORZ. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const btnLeft = document.querySelector('.carousel-btn.left');
+    const btnRight = document.querySelector('.carousel-btn.right');
+
+    if (track && btnLeft && btnRight) {
+      const slideAmount = () => {
+        const card = track.querySelector('.brand-card');
+        return (card ? card.offsetWidth + 18 : 240);
+      };
+
+      const scrollByAmount = (amount) => {
+        track.scrollBy({ left: amount, behavior: 'smooth' });
+      };
+
+      btnLeft.addEventListener('click', () => scrollByAmount(-slideAmount()));
+      btnRight.addEventListener('click', () => scrollByAmount(slideAmount()));
+
+      const autoAdvance = () => {
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 12) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollByAmount(slideAmount());
+        }
+      };
+
+      let autoSlide = setInterval(autoAdvance, 3500);
+      track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+      track.addEventListener('mouseleave', () => {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(autoAdvance, 3500);
+      });
+    }
+  </script>
 </body>
 </html>
