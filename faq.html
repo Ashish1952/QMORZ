@@ -12,7 +12,7 @@
       <div class="nav-bar">
         <div class="brand">
           <div class="brand-placeholder">
-            <img src="logo/logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 65px;" />
+            <img src="logo/logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 50px;" />
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
@@ -68,6 +68,50 @@
             Send us a message through the contact form, email us at info@qmorz.com, or call +91 99999 99999.
           </div>
         </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>HOW I CAN HIRE?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Just fill out the form of the Hire page, where you can hire the
+            Diffrent Category of People like Video Editor, Reel Shooter, Cinematographer.
+           </div>
+        </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>HOW FAST WE DELIVER?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We're quick - Execution time depends on the length of your project,
+            we will ensure that to not too keep you waiting.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>CAN I ASK CHANGES AFTER DELIVERY OF THE FIRST DRAFT?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, we offer unlimitied revisions to ensure the final product meets your expectations,
+            But as long Big changes or a totaly new direction may require additional time and cost.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button type="button" class="faq-question">
+            <span>CAN YOU WORK ON SHORT  DEADLINES?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, we can work on short deadlines. Please contact us with your project
+            details and timeline, and we'll do our best to accommodate your needs.
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -120,6 +164,21 @@
         }
       });
     });
+  </script>
+  <script>
+    // Add glassmorphism to header when page scrolls
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const onScroll = () => {
+        if (window.scrollY > 30) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   </script>
 </body>
 </html>

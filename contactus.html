@@ -12,7 +12,7 @@
       <div class="nav-bar">
         <div class="brand">
           <div class="brand-placeholder">
-            <img src="logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 65px;" />
+            <img src="logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 50px;" />
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
@@ -82,5 +82,21 @@
       <p class="footer-note">&copy; 2026 QMORZ. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Add glassmorphism to header when page scrolls
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const onScroll = () => {
+        if (window.scrollY > 30) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 </body>
 </html>

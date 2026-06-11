@@ -1,10 +1,11 @@
 /* Root variables */
 :root {
-  --bg-color: #121018;
+  --bg-color: #161425;
   --accent-color: #d4af37;
-  --text-color: #f5e2a1;
-  --panel-color: rgba(255, 255, 255, 0.04);
+  --text-color: #fff3c9;
+  --panel-color: rgba(255, 255, 255, 0.06);
   --border-color: rgba(212, 175, 55, 0.25);
+  --hero-overlay: rgba(255, 255, 255, 0.05);
 }
 
 /* Global reset */
@@ -17,7 +18,7 @@
 /* Body styles */
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #2f243d 0%, #121018 55%);
+  background: radial-gradient(circle at top left, #43365f 0%, #161425 55%);
   color: var(--text-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -27,9 +28,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(18, 16, 24, 0.9);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
-  backdrop-filter: blur(14px);
+  background: transparent;
+  border-bottom: none;
+  transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, padding 0.25s ease;
 }
 
 .container {
@@ -41,7 +42,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 10px 0;
+  transition: padding 0.25s ease;
+}
+
+/* Glassmorphism when scrolled */
+header.scrolled {
+  background: var(--panel-color);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px) saturate(120%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+header.scrolled .nav-bar {
+  padding: 6px 0;
 }
 
 .brand {
@@ -52,18 +66,18 @@ header {
 }
 
 .brand-placeholder {
-  width: 80px;
-  height: 65px;
+  width: 64px;
+  height: 48px;
   display: grid;
   place-items: center;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-color);
 }
 
 .brand-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
@@ -71,13 +85,13 @@ header {
 
 nav ul {
   display: flex;
-  gap: 28px;
+  gap: 18px;
   list-style: none;
   flex-wrap: wrap;
 }
 
 nav li {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   letter-spacing: 0.03em;
 }
 
@@ -337,15 +351,16 @@ nav a:focus {
 /* Footer */
 footer {
   padding: 48px 0;
-  background: rgba(18, 16, 24, 0.95);
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
 }
 
 footer .footer-inner {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 24px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
@@ -356,15 +371,20 @@ footer .footer-section {
 
 footer .footer-brand h3,
 footer .footer-section h4 {
-  margin: 0 0 16px;
-  font-size: 1.15rem;
+  margin: 0 0 18px;
+  font-size: 1.05rem;
   color: var(--accent-color);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 footer .footer-brand p,
 footer .footer-links li,
-footer .footer-note {
+footer .footer-links a {
   color: rgba(245, 226, 161, 0.88);
+  font-size: 0.97rem;
+  line-height: 1.8;
 }
 
 footer .footer-links {
@@ -545,15 +565,13 @@ footer .footer-note {
   scroll-snap-type: x mandatory;
   padding-bottom: 10px;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .carousel-track::-webkit-scrollbar {
-  height: 10px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.35);
-  border-radius: 999px;
+  display: none;
+  height: 0;
 }
 
 .brand-card {
@@ -563,14 +581,17 @@ footer .footer-note {
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(212, 175, 55, 0.16);
-  display: grid;
-  place-items: center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   color: rgba(245, 226, 161, 0.95);
   font-size: 1rem;
   scroll-snap-align: start;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 14px;
+  padding: 16px;
 }
 
 .brand-card img {
@@ -578,7 +599,7 @@ footer .footer-note {
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: auto;
 }
 
 .carousel-btn {

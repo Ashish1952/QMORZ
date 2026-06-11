@@ -13,7 +13,7 @@
       <div class="nav-bar">
         <div class="brand">
           <div class="brand-placeholder">
-            <img src="logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 65px;" >
+            <img src="logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 50px;" >
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
@@ -21,7 +21,7 @@
         <nav>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#hire">Hire</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="#about">About Us</a></li>
@@ -45,8 +45,8 @@
         <div class="callout">Royal Cinematic Experience</div>
         <h1>Turning Journeys Into Cinematic Stories.</h1>
         <p>
-          Welcome to a home built for unforgettable visuals and premium storytelling. Every frame,
-          every scene, and every story is crafted with a rich, royal touch and a bold golden glow.
+          Welcome to a Place where we built your unforgettable visuals and journeys. Every frame,
+          every scene, and every story is crafted with Memorable Experiences.
         </p>
       </div>
     </section>
@@ -55,9 +55,9 @@
     <section class="services" id="services">
       <div class="services-intro">
         <span class="section-tag">Services</span>
-        <h2>Premium production and storytelling for every brand.</h2>
+        <h2>Premium production and mkaing your every moment Memorable.</h2>
         <p>
-          We deliver cinematic visuals, polished production, and creative direction that helps
+          We deliver cinematic visuals, creative directions that helps
           your story stand out across screens, campaigns, and digital experiences.
         </p>
       </div>
@@ -127,7 +127,6 @@
           <ul class="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="#aboutus">About Us</a></li>
@@ -161,9 +160,6 @@
         track.scrollBy({ left: amount, behavior: 'smooth' });
       };
 
-      btnLeft.addEventListener('click', () => scrollByAmount(-slideAmount()));
-      btnRight.addEventListener('click', () => scrollByAmount(slideAmount()));
-
       const autoAdvance = () => {
         if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 12) {
           track.scrollTo({ left: 0, behavior: 'smooth' });
@@ -172,13 +168,47 @@
         }
       };
 
-      let autoSlide = setInterval(autoAdvance, 3500);
-      track.addEventListener('mouseenter', () => clearInterval(autoSlide));
-      track.addEventListener('mouseleave', () => {
-        clearInterval(autoSlide);
-        autoSlide = setInterval(autoAdvance, 3500);
+      const startAutoSlide = () => {
+        clearInterval(window.autoSlideTimer);
+        window.autoSlideTimer = setInterval(autoAdvance, 3200);
+      };
+
+      const stopAutoSlide = () => {
+        clearInterval(window.autoSlideTimer);
+      };
+
+      btnLeft.addEventListener('click', () => {
+        scrollByAmount(-slideAmount());
+        startAutoSlide();
       });
+
+      btnRight.addEventListener('click', () => {
+        scrollByAmount(slideAmount());
+        startAutoSlide();
+      });
+
+      track.addEventListener('mouseenter', stopAutoSlide);
+      track.addEventListener('mouseleave', startAutoSlide);
+      track.addEventListener('touchstart', stopAutoSlide, { passive: true });
+      track.addEventListener('touchend', startAutoSlide, { passive: true });
+
+      startAutoSlide();
     }
+  </script>
+  <script>
+    // Add glassmorphism to header when page scrolls
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const onScroll = () => {
+        if (window.scrollY > 30) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   </script>
 </body>
 </html>
