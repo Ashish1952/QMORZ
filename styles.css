@@ -556,6 +556,8 @@ nav a:focus {
 /* Footer */
 footer {
   padding: 48px 0;
+  margin: 0 auto 40px;
+  width: min(1200px, 100% - 40px);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(212, 175, 55, 0.16);
   border-radius: 24px;
@@ -798,10 +800,14 @@ footer .footer-note {
 }
 
 /* Hire page */
+.hire-section {
+  padding: 60px 0 80px;
+}
+
 .hire-hero {
-  padding: 60px 0 48px;
+  max-width: 900px;
+  margin: 0 auto 40px;
   text-align: left;
-  max-width: 760px;
 }
 
 .hire-hero h1 {
@@ -815,7 +821,7 @@ footer .footer-note {
 
 .hire-form-section {
   max-width: 900px;
-  margin: 0 auto 120px;
+  margin: 0 auto;
 }
 
 .hire-form-section .contact-form-panel {
@@ -832,12 +838,12 @@ footer .footer-note {
 }
 
 @media (max-width: 760px) {
-  .hire-hero {
-    padding-bottom: 32px;
+  .hire-section {
+    padding: 40px 0 60px;
   }
 
-  .hire-form-section {
-    margin-bottom: 80px;
+  .hire-hero {
+    margin-bottom: 28px;
   }
 
   .hire-form-section .contact-form-panel {

@@ -33,51 +33,55 @@
   </header>
 
   <main class="container">
-    <section class="hire-hero" id="hire">
-      <h1>HIRE THE PERSON...🙋‍♂️</h1>
-    </section>
+    <section class="hire-section">
+      <div class="hire-hero" id="hire">
+        <h1>HIRE THE PERSON...🙋‍♂️</h1>
+      </div>
 
-    <section class="hire-form-section">
-      <div class="contact-form-panel">
-        <form class="contact-form" action="#" method="post">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Enter your name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required pattern="[A-Za-z ]+" title="Only letters and spaces are allowed" />
+      <div class="hire-form-section">
+        <div class="contact-form-panel">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Enter your name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required pattern="[A-Za-z ]+" title="Only letters and spaces are allowed" />
+              </div>
+              <div class="form-group">
+                <label for="email">Enter your mail</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" required />
+              </div>
             </div>
-            <div class="form-group">
-              <label for="email">Enter your mail</label>
-              <input id="email" name="email" type="email" placeholder="name@example.com" required />
-            </div>
-          </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Enter your Phone number</label>
-              <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Enter your Phone number</label>
+                <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+              </div>
+              <div class="form-group">
+                <label for="category">Select Person you want to Hire</label>
+                <select id="category" name="category" required>
+                  <option value="">Select Person you want to Hire</option>
+                  <option value="Influencer-Male">Influencer-Male</option>
+                  <option value="Influencer-Female">Influencer-Female</option>
+                  <option value="photographer">Photographer</option>
+                  <option value="content-creator">Content Creator</option>
+                  <option value="video-editor">Video Editor</option>
+                  <option value="reel-shooter">Reel Shooter</option>
+                  <option value="cinematographer">Cinematographer</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="category">Select Person you want to Hire</label>
-              <select id="category" name="category" required>
-                <option value="">Select Person you want to Hire</option>
-                <option value="Influencer-Male">Influencer-Male</option>
-                <option value="Influencer-Female">Influencer-Female</option>
-                <option value="photographer">Photographer</option>
-                <option value="content-creator">Content Creator</option>
-                <option value="video-editor">Video Editor</option>
-                <option value="reel-shooter">Reel Shooter</option>
-                <option value="cinematographer">Cinematographer</option>
-              </select>
+
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="message">Enter your message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group full-width">
-            <label for="message">Enter your message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -95,11 +99,10 @@
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="hire.html">Hire</a></li>
+            <li><a href="hire.html#hire">Hire</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
-            
           </ul>
         </div>
 
