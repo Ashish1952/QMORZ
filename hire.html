@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <title>Hire Us</title>
   <link rel="icon" href="4-removebg-preview.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,7 +23,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="service.html">Services</a></li>
             <li><a href="hire.html#hire">Hire</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
           </ul>
@@ -33,27 +33,11 @@
   </header>
 
   <main class="container">
-    <section class="contact-hero">
-      <h1>RING THE BELL...🔔</h1>
-      <p>Whether you need a scalable your Journey, or want to discuss a project,
-        <br> our team is ready to build it. Reach out to us and let's start a conversation...</p>
+    <section class="hire-hero" id="hire">
+      <h1>HIRE THE PERSON...🙋‍♂️</h1>
     </section>
 
-    <section class="contact-grid">
-      <div class="contact-left">
-        <div class="inquiry-card">
-          <div class="inquiry-icon">✉</div>
-          <h3>GENERAL INQUIRIES</h3>
-          <a href="mailto:info@qmorz.com" class="inquiry-email">info@qmorz.com</a>
-        </div>
-
-        <div class="inquiry-card">
-          <div class="inquiry-icon phone-icon">☎</div>
-          <h3>PHONE</h3>
-          <a href="tel:+919999999999" class="inquiry-phone">+91 99999 99999</a>
-        </div>
-      </div>
-
+    <section class="hire-form-section">
       <div class="contact-form-panel">
         <form class="contact-form" action="#" method="post">
           <div class="form-row">
@@ -71,6 +55,19 @@
             <div class="form-group">
               <label for="phone">Enter your Phone number</label>
               <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+            </div>
+            <div class="form-group">
+              <label for="category">Select Person you want to Hire</label>
+              <select id="category" name="category" required>
+                <option value="">Select Person you want to Hire</option>
+                <option value="Influencer-Male">Influencer-Male</option>
+                <option value="Influencer-Female">Influencer-Female</option>
+                <option value="photographer">Photographer</option>
+                <option value="content-creator">Content Creator</option>
+                <option value="video-editor">Video Editor</option>
+                <option value="reel-shooter">Reel Shooter</option>
+                <option value="cinematographer">Cinematographer</option>
+              </select>
             </div>
           </div>
 
@@ -98,8 +95,11 @@
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="hire.html">Hire</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            
           </ul>
         </div>
 

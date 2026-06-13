@@ -380,7 +380,7 @@ nav a:focus {
 
 /* Reels grid (3x2) */
 .reel-grid {
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
@@ -400,7 +400,7 @@ nav a:focus {
 .reel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: justify;
   transition: transform 0.45s cubic-bezier(.2,.9,.3,1);
   display: block;
   border-radius: 12px;
@@ -733,7 +733,8 @@ footer .footer-note {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   padding: 14px 16px;
   border: 1px solid rgba(212, 175, 55, 0.16);
   border-radius: 12px;
@@ -744,8 +745,25 @@ footer .footer-note {
   transition: border-color 0.2s ease;
 }
 
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8' fill='none'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23d4af37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 8px;
+}
+
+.contact-form select option {
+  background: #161425;
+  color: var(--text-color);
+}
+
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: rgba(212, 175, 55, 0.4);
 }
@@ -777,6 +795,58 @@ footer .footer-note {
 .submit-btn:hover {
   transform: translateY(-2px);
   background: #c79726;
+}
+
+/* Hire page */
+.hire-hero {
+  padding: 60px 0 48px;
+  text-align: left;
+  max-width: 760px;
+}
+
+.hire-hero h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  color: var(--accent-color);
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hire-form-section {
+  max-width: 900px;
+  margin: 0 auto 120px;
+}
+
+.hire-form-section .contact-form-panel {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+}
+
+.hire-form-section .contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.hire-form-section .form-row:last-of-type {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .hire-hero {
+    padding-bottom: 32px;
+  }
+
+  .hire-form-section {
+    margin-bottom: 80px;
+  }
+
+  .hire-form-section .contact-form-panel {
+    padding: 28px;
+  }
+
+  .hire-form-section .form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* FAQ section */
@@ -848,7 +918,7 @@ footer .footer-note {
 /* FAQ open state */
 .faq-item.open .faq-answer {
   padding: 18px 30px 26px;
-  margin-top: 12px;
+  margin-top: 10px;
   background: var(--panel-color);
   border: 1px solid rgba(212, 175, 55, 0.14);
   border-radius: 12px;
