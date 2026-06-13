@@ -20,8 +20,8 @@
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#hire">Hire</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="hire.html#hire">Hire</a></li>
             <li><a href="index.html#contact">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
@@ -32,23 +32,55 @@
   </header>
 
   <main class="container">
-    <section class="form-panel">
+    <section class="contact-hero">
       <h1>RING THE BELL...🔔</h1>
-      <form class="contact-form" action="#" method="post">
-        <label for="name">Enter your name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required pattern="[A-Za-z ]+" title="Only letters and spaces are allowed" />
+      <p>Whether you need a scalable your Journey, or want to discuss a project,
+        <br> our team is ready to build it. Reach out to us and let's start a conversation...</p>
+    </section>
 
-        <label for="email">Enter your mail</label>
-        <input id="email" name="email" type="email" placeholder="name@example.com" required />
+    <section class="contact-grid">
+      <div class="contact-left">
+        <div class="inquiry-card">
+          <div class="inquiry-icon">✉</div>
+          <h3>GENERAL INQUIRIES</h3>
+          <a href="mailto:info@qmorz.com" class="inquiry-email">info@qmorz.com</a>
+        </div>
 
-        <label for="phone">Enter your Phone number</label>
-        <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+        <div class="inquiry-card">
+          <div class="inquiry-icon phone-icon">☎</div>
+          <h3>PHONE</h3>
+          <a href="tel:+919999999999" class="inquiry-phone">+91 99999 99999</a>
+        </div>
+      </div>
 
-        <label for="message">Enter your message</label>
-        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+      <div class="contact-form-panel">
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Enter your name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required pattern="[A-Za-z ]+" title="Only letters and spaces are allowed" />
+            </div>
+            <div class="form-group">
+              <label for="email">Enter your mail</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required />
+            </div>
+          </div>
 
-        <button type="submit">Send Message</button>
-      </form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Enter your Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="10 digit phone number" required pattern="\d{10}" title="Phone number must be 10 digits" />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">Enter your message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -64,8 +96,7 @@
           <h4>Quick links</h4>
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="service.html">Services</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#about">About Us</a></li>
           </ul>
