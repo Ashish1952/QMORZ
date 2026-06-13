@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | QMORZ</title>
+  <link rel="icon" href="4-removebg-preview.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-bar">
+        <div class="brand">
+          <div class="brand-placeholder">
+            <img src="logo_removebg_1.png" alt="QMORZ Logo" style="width: 70px; height: 50px;" />
+          </div>
+          <div class="brand-title">QMORZ</div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="hire.html#hire">Hire</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+    
+  <main class="container">
+    <section class="service-page-intro">
+      <span class="section-tag">Our Services</span>
+      <h1 class="section-title">Our Services</h1>
+      <p class="services-description">Explore our creative reel stories, landscape productions, and portrait video experiences with interactive previews built inside each section.</p>
+    </section>
+
+    <section class="services service-page">
+      <div class="service-section">
+        <div class="service-section-header">
+          <span class="section-tag">Reels Section</span>
+          <h2>Reels Showcase</h2>
+        </div>
+        <p class="service-section-copy">Fast-paced social reels designed to capture attention in seconds,
+            with dynamic motion and branded energy.</p>
+
+        <div class="reel-grid">
+          <button class="reel-item" data-src="bela-compressed.mp4" aria-label="Open reel 1">
+            <img src="bela_thumbnail.png" alt="Reel thumbnail 1" />
+          </button>
+          <button class="reel-item" data-src="satnam_tea.mp4" aria-label="Open reel 2">
+            <img src="satnam_thumbnail.png" alt="Reel thumbnail 2" />
+          </button>
+          <button class="reel-item" data-src="rubi-compressed.mp4" aria-label="Open reel 3">
+            <img src="rubi_thumbnail.png" alt="Reel thumbnail 3" />
+          </button>
+          <button class="reel-item" data-src="corporate.mp4" aria-label="Open reel 4">
+            <img src="corporate_thumbnail.png" alt="Reel thumbnail 4" />
+          </button>
+          <button class="reel-item" data-src="weding.mp4" aria-label="Open reel 5">
+            <img src="weding_thumbnail.png" alt="Reel thumbnail 5" />
+          </button>
+          <button class="reel-item" data-src="weding_02.mp4" aria-label="Open reel 6">
+            <img src="weding_02_thumbnail.png" alt="Reel thumbnail 6" />
+          </button>
+          <button class="reel-item" data-src="ranishaa.mp4" aria-label="Open reel 7">
+            <img src="ranishaa_thumbnial.png" alt="Reel thumbnail 7" />
+          </button>
+        </div>
+      </div>
+
+      <div class="service-section">
+        <div class="service-section-header">
+          <span class="section-tag">Landscape Films</span>
+          <h2>Landscape Films</h2>
+        </div>
+        <p class="service-section-copy">Sweeping landscape productions with cinematic framing and polished visuals.</p>
+
+        <div class="landscape-grid">
+          <button class="landscape-item" data-src="college_event_intro_compressed.mp4" aria-label="Open landscape film 1">
+            <img src="collegethumnail.png" alt="Landscape film 1" />
+          </button>
+          <button class="landscape-item" data-src="vastu_poojan.mp4" aria-label="Open landscape film 2">
+            <img src="vastu_thumbnail.png" alt="Landscape film 2" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal player (shared by all thumbnails) -->
+    <div id="video-modal" class="video-modal" aria-hidden="true">
+      <div class="video-modal-backdrop"></div>
+      <div class="video-modal-container">
+        <button class="video-modal-close" aria-label="Close">✕</button>
+        <video id="modal-video" class="modal-video" controls playsinline></video>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>QMORZ</h3>
+          <p>Delivering cinematic production, reel shooting, and creative visuals for brands that want to stand out.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@qmorz.com">info@qmorz.com</a></li>
+            <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">&copy; 2026 QMORZ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const onScroll = () => {
+        if (window.scrollY > 30) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    (function() {
+      const modal = document.getElementById('video-modal');
+      const modalVideo = document.getElementById('modal-video');
+      const closeBtn = document.querySelector('.video-modal-close');
+      const backdrop = document.querySelector('.video-modal-backdrop');
+      if (!modal || !modalVideo || !closeBtn || !backdrop) return;
+
+      function openModalWithSrc(src) {
+        if (!src) return;
+        modal.setAttribute('aria-hidden', 'false');
+        modal.style.display = 'flex';
+        modalVideo.src = src;
+        modalVideo.muted = false;
+        modalVideo.controls = true;
+        modalVideo.currentTime = 0;
+        modalVideo.play().catch(() => {});
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        modalVideo.pause();
+        modalVideo.removeAttribute('src');
+        modalVideo.load();
+      }
+
+      document.querySelectorAll('.reel-item, .landscape-item').forEach(btn => {
+        const img = btn.querySelector('img');
+        btn.addEventListener('click', () => {
+          openModalWithSrc(btn.dataset.src);
+        });
+
+        btn.addEventListener('pointermove', ev => {
+          if (!img) return;
+          const r = btn.getBoundingClientRect();
+          const x = (ev.clientX - r.left - r.width / 2) / r.width;
+          const y = (ev.clientY - r.top - r.height / 2) / r.height;
+          img.style.transform = `scale(1.04) translate(${x * 6}px, ${y * 6}px)`;
+        });
+
+        btn.addEventListener('pointerleave', () => {
+          if (!img) return;
+          img.style.transform = '';
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', closeModal);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
+<script>
+    // Add glassmorphism to header when page scrolls
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const onScroll = () => {
+        if (window.scrollY > 30) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
