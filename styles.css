@@ -1,4 +1,6 @@
-/* Root variables */
+/* ==========================================================================
+   1. ROOT VARIABLES & GLOBAL RESET
+   ========================================================================== */
 :root {
   --bg-color: #161425;
   --accent-color: #d4af37;
@@ -8,14 +10,12 @@
   --hero-overlay: rgba(255, 255, 255, 0.05);
 }
 
-/* Global reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Body styles */
 body {
   min-height: 100vh;
   background: radial-gradient(circle at top left, #43365f 0%, #161425 55%);
@@ -23,7 +23,14 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header / navigation */
+.container {
+  width: min(1200px, 100% - 40px);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION (STICKY & GLASSMORPHISM)
+   ========================================================================== */
 header {
   position: sticky;
   top: 0;
@@ -31,11 +38,6 @@ header {
   background: transparent;
   border-bottom: none;
   transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, padding 0.25s ease;
-}
-
-.container {
-  width: min(1200px, 100% - 40px);
-  margin: 0 auto;
 }
 
 .nav-bar {
@@ -47,7 +49,6 @@ header {
   position: relative;
 }
 
-/* Glassmorphism when scrolled */
 header.scrolled {
   background: var(--panel-color);
   border-bottom: 1px solid var(--border-color);
@@ -107,7 +108,9 @@ nav a:focus {
   color: var(--accent-color);
 }
 
-/* Hero section */
+/* ==========================================================================
+   3. HOME / HERO SECTION
+   ========================================================================== */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -166,7 +169,6 @@ nav a:focus {
   color: var(--text-color);
 }
 
-/* Hero callout */
 .hero-copy .callout {
   display: inline-flex;
   align-items: center;
@@ -246,7 +248,9 @@ nav a:focus {
   font-size: 0.95rem;
 }
 
-/* Services section */
+/* ==========================================================================
+   4. SERVICES SECTION & SERVICE CARDS
+   ========================================================================== */
 .services {
   padding: 80px 0;
 }
@@ -283,7 +287,6 @@ nav a:focus {
   gap: 24px;
 }
 
-/* Service cards */
 .service-card {
   background: var(--panel-color);
   border: 1px solid rgba(212, 175, 55, 0.16);
@@ -302,17 +305,14 @@ nav a:focus {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
 }
 
-/* First service card - rounded circles on corners */
 .service-card:nth-child(1) {
   border-radius: 32px;
 }
 
-/* Second service card - asymmetric rounded corners */
 .service-card:nth-child(2) {
   border-radius: 12px 32px 12px 32px;
 }
 
-/* Third service card - polygon clip-path */
 .service-card:nth-child(3) {
   border-radius: 24px 8px 24px 8px;
   clip-path: polygon(2% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%, 0% 2%);
@@ -330,7 +330,6 @@ nav a:focus {
   color: rgba(245, 226, 161, 0.9);
 }
 
-/* Service button */
 .service-button {
   margin-top: auto;
   align-self: flex-start;
@@ -349,7 +348,9 @@ nav a:focus {
   color: #121018;
 }
 
-/* Service page specific */
+/* ==========================================================================
+   5. SERVICE INTERNAL MEDIA HUB (REELS & LANDSCAPE SHOWCASE)
+   ========================================================================== */
 .service-page-intro {
   padding: 80px 0 20px;
 }
@@ -379,7 +380,6 @@ nav a:focus {
   gap: 24px;
 }
 
-/* Reels grid (3x2) */
 .reel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -411,7 +411,6 @@ nav a:focus {
   transform: scale(1.06);
 }
 
-/* Landscape 2x2 grid */
 .landscape-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -430,10 +429,19 @@ nav a:focus {
   cursor: pointer;
 }
 
-.landscape-item img { width:100%; height:100%; object-fit:cover; border-radius:12px; transition:transform 0.45s ease; }
-.landscape-item:hover img { transform: scale(1.03); }
+.landscape-item img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 12px; 
+  transition: transform 0.45s ease; 
+}
 
-/* Modal player */
+.landscape-item:hover img { 
+  transform: scale(1.03); 
+}
+
+/* Video Player Modal Box */
 .video-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 9999; }
 .video-modal[aria-hidden="false"] { display: flex; }
 .video-modal-backdrop { position: absolute; inset:0; background: rgba(0,0,0,0.6); }
@@ -531,7 +539,6 @@ nav a:focus {
   .service-section-copy {
     min-height: auto;
   }
-
   .service-page-intro {
     padding-top: 60px;
   }
@@ -542,11 +549,9 @@ nav a:focus {
   .service-video-frame {
     min-height: auto;
   }
-
   .service-video-frame {
     min-height: 260px;
   }
-
   .video-thumb {
     top: 16px;
     right: 16px;
@@ -554,79 +559,9 @@ nav a:focus {
   }
 }
 
-/* Footer */
-footer {
-  width: 100%;
-  padding: 56px 0 32px;
-  margin-top: 40px;
-  background: rgba(0, 0, 0, 0.22);
-  border: none;
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
-  border-radius: 0;
-  box-shadow: none;
-}
-
-footer .footer-inner {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-
-footer .footer-brand,
-footer .footer-section {
-  min-width: 220px;
-}
-
-footer .footer-brand h3,
-footer .footer-section h4 {
-  margin: 0 0 18px;
-  font-size: 1.05rem;
-  color: var(--accent-color);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-footer .footer-brand p,
-footer .footer-links li,
-footer .footer-links a {
-  color: rgba(245, 226, 161, 0.88);
-  font-size: 0.97rem;
-  line-height: 1.8;
-}
-
-footer .footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
-
-footer .footer-links a {
-  color: rgba(245, 226, 161, 0.88);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-footer .footer-links a:hover,
-footer .footer-links a:focus {
-  color: var(--accent-color);
-}
-
-footer .footer-note {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-  color: rgba(245, 226, 161, 0.72);
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-/* Contact page */
-
-/* Contact Hero */
+/* ==========================================================================
+   6. CONTACT US & CAREERS (SHARED DUAL-COLUMN GRID SECTIONS)
+   ========================================================================== */
 .contact-hero {
   padding: 60px 0 80px;
   text-align: left;
@@ -640,7 +575,6 @@ footer .footer-note {
   font-weight: 700;
 }
 
-/* Contact grid layout */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -655,7 +589,7 @@ footer .footer-note {
   gap: 24px;
 }
 
-/* Contact cards */
+/* Inquiry Display Panels */
 .inquiry-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(212, 175, 55, 0.16);
@@ -707,7 +641,7 @@ footer .footer-note {
   color: var(--accent-color);
 }
 
-/* Contact form panel */
+/* Input Form Panels */
 .contact-form-panel {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(212, 175, 55, 0.16);
@@ -715,7 +649,6 @@ footer .footer-note {
   padding: 40px;
 }
 
-/* Form rows and fields */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -804,13 +737,15 @@ footer .footer-note {
   background: #c79726;
 }
 
-/* Hire page */
+/* ==========================================================================
+   7. CAREERS PAGE EXTENSIONS
+   ========================================================================== */
 .hire-section {
   padding: 60px 0 80px;
 }
 
 .hire-hero {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto 40px;
   text-align: left;
 }
@@ -824,43 +759,21 @@ footer .footer-note {
   line-height: 1.15;
 }
 
-.hire-form-section {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.hire-form-section .contact-form-panel {
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
-}
-
-.hire-form-section .contact-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.hire-form-section .form-row:last-of-type {
-  margin-bottom: 0;
+.inquiry-card .inquiry-static-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.5;
 }
 
 @media (max-width: 760px) {
-  .hire-section {
-    padding: 40px 0 60px;
-  }
-
-  .hire-hero {
-    margin-bottom: 28px;
-  }
-
-  .hire-form-section .contact-form-panel {
-    padding: 28px;
-  }
-
-  .hire-form-section .form-row {
-    grid-template-columns: 1fr;
-  }
+  .hire-section { padding: 40px 0 60px; }
+  .hire-hero { margin-bottom: 28px; }
 }
 
-/* FAQ section */
+/* ==========================================================================
+   8. FAQ ACCORDION HANDLERS
+   ========================================================================== */
 .faq-section {
   padding: 80px 0;
   font-family: "Times New Roman", Times, serif;
@@ -926,7 +839,6 @@ footer .footer-note {
   line-height: 1.8;
 }
 
-/* FAQ open state */
 .faq-item.open .faq-answer {
   padding: 18px 30px 26px;
   margin-top: 10px;
@@ -936,19 +848,21 @@ footer .footer-note {
   box-sizing: border-box;
 }
 
+/* ==========================================================================
+   9. BRAND CAROUSEL SLIDER
+   ========================================================================== */
 .brand-carousel {
   padding: 80px 0;
   font-family: "Times New Roman", Times, serif;
 }
 
 .brand-carousel .section-header h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3 dream);
   color: var(--accent-color);
   margin-bottom: 28px;
   text-align: center;
 }
 
-/* Brand carousel section */
 .carousel-wrapper {
   position: relative;
   overflow: hidden;
@@ -977,11 +891,9 @@ footer .footer-note {
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(212, 175, 55, 0.16);
-  
   display: flex;
   justify-content: center;
   align-items: center;
-  
   color: rgba(245, 226, 161, 0.95);
   font-size: 1rem;
   scroll-snap-align: start;
@@ -1013,56 +925,109 @@ footer .footer-note {
   z-index: 1;
 }
 
-.carousel-btn.left {
-  left: 8px;
+.carousel-btn.left { left: 8px; }
+.carousel-btn.right { right: 8px; }
+.carousel-btn:hover { background: rgba(212, 175, 55, 0.25); }
+
+/* ==========================================================================
+   10. FOOTER BLOCKS
+   ========================================================================== */
+footer {
+  width: 100%;
+  padding: 56px 0 32px;
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.22);
+  border: none;
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.carousel-btn.right {
-  right: 8px;
+footer .footer-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
-.carousel-btn:hover {
-  background: rgba(212, 175, 55, 0.25);
+footer .footer-brand,
+footer .footer-section {
+  min-width: 220px;
 }
 
-/* Responsive media queries */
-@media (max-width: 760px) {
-  .form-panel {
-    margin: 60px auto 80px;
-    padding: 28px;
-  }
+footer .footer-brand h3,
+footer .footer-section h4 {
+  margin: 0 0 18px;
+  font-size: 1.05rem;
+  color: var(--accent-color);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
+footer .footer-brand p,
+footer .footer-links li,
+footer .footer-links a {
+  color: rgba(245, 226, 161, 0.88);
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+footer .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+footer .footer-links a {
+  color: rgba(245, 226, 161, 0.88);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer-links a:hover,
+footer .footer-links a:focus {
+  color: var(--accent-color);
+}
+
+footer .footer-note {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  color: rgba(245, 226, 161, 0.72);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES & TABLET FLUID LAYOUT
+   ========================================================================== */
 @media (max-width: 950px) {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
   }
-
   .hero-panel {
     min-height: auto;
     padding: 20px;
   }
-
   .hero-image {
     max-width: 100%;
     max-height: none;
     height: auto;
   }
-
   .hero-image img {
     height: auto;
   }
-
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
   }
-
   .hero-stats {
     grid-template-columns: 1fr;
   }
-
   .service-grid {
     grid-template-columns: 1fr;
   }
@@ -1074,27 +1039,23 @@ footer .footer-note {
     align-items: flex-start;
     gap: 18px;
   }
-
   nav ul {
     gap: 16px;
   }
-
   .container {
     width: min(100%, 100% - 24px);
   }
-
   .hero-panel {
     padding: 16px;
   }
-
   .hero-copy p {
     max-width: 100%;
   }
 }
 
-/* ==================================
-   HAMBURGER MENU (FIXED)
-================================== */
+/* ==========================================================================
+   12. RESPONSIVE HAMBURGER NAVIGATION ENGINE (FIXED)
+   ========================================================================== */
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -1113,6 +1074,7 @@ footer .footer-note {
     z-index: 1001;
   }
 
+  /* Structural block visibility handler */
   #navbar {
     display: none;
     width: 100%;
@@ -1134,6 +1096,7 @@ footer .footer-note {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 16px;
+    animation: slideDown 0.3s ease;
   }
 
   .contact-grid,
