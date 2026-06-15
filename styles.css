@@ -44,6 +44,7 @@ header {
   justify-content: space-between;
   padding: 10px 0;
   transition: padding 0.25s ease;
+  position: relative;
 }
 
 /* Glassmorphism when scrolled */
@@ -380,7 +381,7 @@ nav a:focus {
 
 /* Reels grid (3x2) */
 .reel-grid {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
@@ -400,7 +401,7 @@ nav a:focus {
 .reel-item img {
   width: 100%;
   height: 100%;
-  object-fit: justify;
+  object-fit: cover;
   transition: transform 0.45s cubic-bezier(.2,.9,.3,1);
   display: block;
   border-radius: 12px;
@@ -994,7 +995,7 @@ footer .footer-note {
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  object-fit: auto;
+  object-fit: contain;
 }
 
 .carousel-btn {
@@ -1089,4 +1090,63 @@ footer .footer-note {
   .hero-copy p {
     max-width: 100%;
   }
+}
+
+/* ==================================
+   HAMBURGER MENU (FIXED)
+================================== */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--accent-color);
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    z-index: 1001;
+  }
+
+  #navbar {
+    display: none;
+    width: 100%;
+  }
+
+  #navbar.active {
+    display: block;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    background: rgba(22, 20, 37, 0.98);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 16px;
+  }
+
+  .contact-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }

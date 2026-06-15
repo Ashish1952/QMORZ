@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services | QMORZ</title>
   <link rel="icon" href="4-removebg-preview.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
@@ -17,13 +17,13 @@
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
-
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav id="navbar">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="hire.html#hire">Hire</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
           </ul>
@@ -45,8 +45,7 @@
           <span class="section-tag">Reels Section</span>
           <h2>Reels Showcase</h2>
         </div>
-        <p class="service-section-copy">Fast-paced social reels designed to capture attention in seconds,
-            with dynamic motion and branded energy.</p>
+        <p class="service-section-copy">Fast-paced social reels designed to capture attention in seconds, with dynamic motion and branded energy.</p>
 
         <div class="reel-grid">
           <button class="reel-item" data-src="bela-compressed.mp4" aria-label="Open reel 1">
@@ -91,7 +90,6 @@
       </div>
     </section>
 
-    <!-- Modal player (shared by all thumbnails) -->
     <div id="video-modal" class="video-modal" aria-hidden="true">
       <div class="video-modal-backdrop"></div>
       <div class="video-modal-container">
@@ -114,7 +112,7 @@
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="hire.html#hire">Hire</a></li>
+            <li><a href="careers.html">Careers</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
@@ -134,28 +132,37 @@
   </footer>
 
   <script>
-    (function() {
+    document.addEventListener("DOMContentLoaded", function() {
+      // Responsive Dynamic Navigation menu Setup
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar");
+
+      if (menuToggle && navbar) {
+        menuToggle.addEventListener("click", () => {
+          navbar.classList.toggle("active");
+          menuToggle.innerHTML = navbar.classList.contains("active") ? "✕" : "☰";
+        });
+      }
+
+      // Glassmorphism Header Scroll Hook
       const header = document.querySelector('header');
-      if (!header) return;
+      if (header) {
+        const onScroll = () => {
+          if (window.scrollY > 30) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
 
-      const onScroll = () => {
-        if (window.scrollY > 30) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
-
-    (function() {
+      // Video Popups & Canvas Translation Animation Logic
       const modal = document.getElementById('video-modal');
       const modalVideo = document.getElementById('modal-video');
       const closeBtn = document.querySelector('.video-modal-close');
       const backdrop = document.querySelector('.video-modal-backdrop');
-      if (!modal || !modalVideo || !closeBtn || !backdrop) return;
 
       function openModalWithSrc(src) {
-        if (!src) return;
+        if (!src || !modal || !modalVideo || !closeBtn) return;
         modal.setAttribute('aria-hidden', 'false');
         modal.style.display = 'flex';
         modalVideo.src = src;
@@ -167,6 +174,7 @@
       }
 
       function closeModal() {
+        if (!modal || !modalVideo) return;
         modal.setAttribute('aria-hidden', 'true');
         modal.style.display = 'none';
         modalVideo.pause();
@@ -194,27 +202,12 @@
         });
       });
 
-      closeBtn.addEventListener('click', closeModal);
-      backdrop.addEventListener('click', closeModal);
+      if(closeBtn) closeBtn.addEventListener('click', closeModal);
+      if(backdrop) backdrop.addEventListener('click', closeModal);
       document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeModal();
       });
-    })();
-  </script>
-<script>
-    // Add glassmorphism to header when page scrolls
-    (function() {
-      const header = document.querySelector('header');
-      if (!header) return;
-
-      const onScroll = () => {
-        if (window.scrollY > 30) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
+    });
   </script>
 </body>
 </html>

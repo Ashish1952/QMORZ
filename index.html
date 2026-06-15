@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QMORZ | Home</title>
   <link rel="icon" href="4-removebg-preview.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
-  
 </head>
 <body>
   <header>
@@ -18,14 +17,14 @@
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
-
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav id="navbar">
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="hire.html#hire">Hire</a></li>
+            <li><a href="careers.html">Careers</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
           </ul>
         </nav>
@@ -33,7 +32,6 @@
     </div>
   </header>
 
-  <!-- Home/Hero Section -->
   <main class="container">
     <section class="hero" id="home">
       <div class="hero-panel">
@@ -56,11 +54,10 @@
       </div>
     </section>
    
-    <!-- Services Section -->
     <section class="services" id="services">
       <div class="services-intro">
         <span class="section-tag">Services</span>
-        <h2>Premium production and mkaing your every moment Memorable.</h2>
+        <h2>Premium production and making your every moment Memorable.</h2>
         <p>
           We deliver cinematic visuals, creative directions that helps
           your story stand out across screens, campaigns, and digital experiences.
@@ -95,7 +92,6 @@
       </div>
     </section>
 
-    <!-- Brand Carousel -->
     <section class="brand-carousel">
       <div class="section-header">
         <h2>Brands I'm working with:</h2>
@@ -118,14 +114,12 @@
     </section>
   </main>
   
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
           <h3>QMORZ</h3>
-          <p>Delivering cinematic production, Reel shooting,
-              and creative videeos for brands that want to stand<br> out on the digital landscape.</p>
+          <p>Delivering cinematic production, Reel shooting, and creative videos for brands that want to stand out on the digital landscape.</p>
         </div>
 
         <div class="footer-section">
@@ -133,8 +127,8 @@
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="hire.html">Hire</a></li>
-            <li><a href="index.html#aboutus">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="index.html#about">About Us</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
           </ul>
@@ -153,69 +147,79 @@
   </footer>
 
   <script>
-    const track = document.querySelector('.carousel-track');
-    const btnLeft = document.querySelector('.carousel-btn.left');
-    const btnRight = document.querySelector('.carousel-btn.right');
+    document.addEventListener("DOMContentLoaded", function () {
+      // Responsive Dynamic Header Code
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar");
 
-    if (track && btnLeft && btnRight) {
-      const slideAmount = () => {
-        const card = track.querySelector('.brand-card');
-        return (card ? card.offsetWidth + 18 : 240);
-      };
+      if (menuToggle && navbar) {
+        menuToggle.addEventListener("click", () => {
+          navbar.classList.toggle("active");
+          menuToggle.innerHTML = navbar.classList.contains("active") ? "✕" : "☰";
+        });
+      }
 
-      const scrollByAmount = (amount) => {
-        track.scrollBy({ left: amount, behavior: 'smooth' });
-      };
-
-      const autoAdvance = () => {
-        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 12) {
-          track.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          scrollByAmount(slideAmount());
-        }
-      };
-
-      const startAutoSlide = () => {
-        clearInterval(window.autoSlideTimer);
-        window.autoSlideTimer = setInterval(autoAdvance, 3200);
-      };
-
-      const stopAutoSlide = () => {
-        clearInterval(window.autoSlideTimer);
-      };
-
-      btnLeft.addEventListener('click', () => {
-        scrollByAmount(-slideAmount());
-        startAutoSlide();
-      });
-
-      btnRight.addEventListener('click', () => {
-        scrollByAmount(slideAmount());
-        startAutoSlide();
-      });
-
-      track.addEventListener('mouseenter', stopAutoSlide);
-      track.addEventListener('mouseleave', startAutoSlide);
-      track.addEventListener('touchstart', stopAutoSlide, { passive: true });
-      track.addEventListener('touchend', startAutoSlide, { passive: true });
-
-      startAutoSlide();
-    }
-  </script>
-  <script>
-    // Add glassmorphism to header when page scrolls
-    (function() {
+      // Add glassmorphism to header when page scrolls
       const header = document.querySelector('header');
-      if (!header) return;
+      if (header) {
+        const onScroll = () => {
+          if (window.scrollY > 30) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
 
-      const onScroll = () => {
-        if (window.scrollY > 30) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
+      // Carousel logic
+      const track = document.querySelector('.carousel-track');
+      const btnLeft = document.querySelector('.carousel-btn.left');
+      const btnRight = document.querySelector('.carousel-btn.right');
 
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
+      if (track && btnLeft && btnRight) {
+        const slideAmount = () => {
+          const card = track.querySelector('.brand-card');
+          return (card ? card.offsetWidth + 18 : 240);
+        };
+
+        const scrollByAmount = (amount) => {
+          track.scrollBy({ left: amount, behavior: 'smooth' });
+        };
+
+        const autoAdvance = () => {
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 12) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            scrollByAmount(slideAmount());
+          }
+        };
+
+        const startAutoSlide = () => {
+          clearInterval(window.autoSlideTimer);
+          window.autoSlideTimer = setInterval(autoAdvance, 3200);
+        };
+
+        const stopAutoSlide = () => {
+          clearInterval(window.autoSlideTimer);
+        };
+
+        btnLeft.addEventListener('click', () => {
+          scrollByAmount(-slideAmount());
+          startAutoSlide();
+        });
+
+        btnRight.addEventListener('click', () => {
+          scrollByAmount(slideAmount());
+          startAutoSlide();
+        });
+
+        track.addEventListener('mouseenter', stopAutoSlide);
+        track.addEventListener('mouseleave', startAutoSlide);
+        track.addEventListener('touchstart', stopAutoSlide, { passive: true });
+        track.addEventListener('touchend', startAutoSlide, { passive: true });
+
+        startAutoSlide();
+      }
+    });
   </script>
 </body>
 </html>

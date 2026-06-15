@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QMORZ | FAQ</title>
   <link rel="icon" href="4-removebg-preview.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
@@ -17,12 +17,12 @@
           </div>
           <div class="brand-title">QMORZ</div>
         </div>
-
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav id="navbar">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="index.html#hire">Hire</a></li>
+            <li><a href="careers.html">Careers</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="index.html#about">About Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
@@ -77,8 +77,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            Just fill out the form of the Hire page, where you can hire the
-            Diffrent Category of People like Video Editor, Reel Shooter, Cinematographer.
+            Just fill out the form of the Careers page, where you can apply for different positions like Video Editor, Reel Shooter, Cinematographer.
            </div>
         </article>
 
@@ -88,8 +87,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            We're quick - Execution time depends on the length of your project,
-            we will ensure that to not too keep you waiting.
+            We're quick - Execution time depends on the length of your project, we will ensure that to not too keep you waiting.
           </div>
         </article>
 
@@ -99,8 +97,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            Yes, we offer unlimitied revisions to ensure the final product meets your expectations,
-            But as long Big changes or a totaly new direction may require additional time and cost.
+            Yes, we offer unlimited revisions to ensure the final product meets your expectations, But as long Big changes or a totaly new direction may require additional time and cost.
           </div>
         </article>
 
@@ -110,8 +107,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            Yes, we can work on short deadlines. Please contact us with your project
-            details and timeline, and we'll do our best to accommodate your needs.
+            Yes, we can work on short deadlines. Please contact us with your project details and timeline, and we'll do our best to accommodate your needs.
           </div>
         </article>
       </div>
@@ -131,7 +127,9 @@
           <ul class="footer-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="contactus.html#contact">Contact Us</a></li>
             <li><a href="faq.html">FAQ</a></li>
           </ul>
         </div>
@@ -149,37 +147,47 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.closest('.faq-item');
-        const answer = item.querySelector('.faq-answer');
-        const icon = button.querySelector('.faq-icon');
-        const isOpen = item.classList.toggle('open');
+    document.addEventListener("DOMContentLoaded", function() {
+      // Responsive Dynamic Navigation menu Setup
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar");
 
-        if (isOpen) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          icon.textContent = '-';
-        } else {
-          answer.style.maxHeight = '0px';
-          icon.textContent = '+';
-        }
+      if (menuToggle && navbar) {
+        menuToggle.addEventListener("click", () => {
+          navbar.classList.toggle("active");
+          menuToggle.innerHTML = navbar.classList.contains("active") ? "✕" : "☰";
+        });
+      }
+
+      // FAQ Accordion Setup
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.closest('.faq-item');
+          const answer = item.querySelector('.faq-answer');
+          const icon = button.querySelector('.faq-icon');
+          const isOpen = item.classList.toggle('open');
+
+          if (isOpen) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.textContent = '-';
+          } else {
+            answer.style.maxHeight = '0px';
+            icon.textContent = '+';
+          }
+        });
       });
-    });
-  </script>
-  <script>
-    // Add glassmorphism to header when page scrolls
-    (function() {
+
+      // Glassmorphism Header Scroll Hook
       const header = document.querySelector('header');
-      if (!header) return;
-
-      const onScroll = () => {
-        if (window.scrollY > 30) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
+      if (header) {
+        const onScroll = () => {
+          if (window.scrollY > 30) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+    });
   </script>
 </body>
 </html>
