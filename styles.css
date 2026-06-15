@@ -104,7 +104,8 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus,
+nav a.active {
   color: var(--accent-color);
 }
 
@@ -857,7 +858,7 @@ nav a:focus {
 }
 
 .brand-carousel .section-header h2 {
-  font-size: clamp(2rem, 4vw, 3 dream);
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--accent-color);
   margin-bottom: 28px;
   text-align: center;
@@ -1112,4 +1113,129 @@ footer .footer-note {
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-15px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   13. ABOUT US PAGE LAYOUT ADAPTATIONS
+   ========================================================================== */
+.about-narrative {
+  line-height: 1.9;
+  font-size: 1.1rem;
+  color: rgba(245, 226, 161, 0.95);
+  margin-top: 10px;
+}
+
+.hero-copy p {
+  margin-bottom: 8px;
+}
+
+#philosophy .contact-grid {
+  margin: 0;
+  align-items: center;
+}
+
+#philosophy .inquiry-card {
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+/* ==========================================================================
+   14. DEDICATED TEXT ONLY ABOUT US LAYOUT ENGINE (INTEGRATED FROM s.css)
+   ========================================================================== */
+.about-hero {
+  padding: 100px 0 80px;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  color: var(--accent-color);
+  margin: 20px 0;
+  font-family: "Times New Roman", serif;
+}
+
+.about-hero p {
+  max-width: 850px;
+  margin: auto;
+  line-height: 1.9;
+  font-size: 1.1rem;
+}
+
+.about-story,
+.vision-section,
+.about-stats,
+.philosophy-section,
+.about-cta {
+  padding: 80px 0;
+}
+
+.about-grid,
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.about-card,
+.vision-card,
+.philosophy-card,
+.cta-card {
+  background: var(--panel-color);
+  border: 1px solid rgba(212, 175, 55, .15);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+}
+
+.about-card h2,
+.philosophy-card h2,
+.cta-card h2 {
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  font-family: "Times New Roman", serif;
+}
+
+.vision-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.about-card p,
+.vision-card p,
+.philosophy-card p {
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.cta-card {
+  text-align: center;
+}
+
+.cta-card p {
+  margin: 20px 0 30px;
+}
+
+/* Scroll Animation Engine Hooks */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text Page Layout Breakpoints */
+@media (max-width: 900px) {
+  .about-grid,
+  .vision-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-card,
+  .vision-card,
+  .philosophy-card,
+  .cta-card {
+    padding: 30px;
+  }
 }
