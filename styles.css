@@ -1226,7 +1226,7 @@ footer .footer-note {
   transform: translateY(0);
 }
 
-/* Text Page Layout Breakpoints */
+  /* Text Page Layout Breakpoints */
 @media (max-width: 900px) {
   .about-grid,
   .vision-grid {

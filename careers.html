@@ -158,6 +158,52 @@
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
       }
+
+      // Handle the form submission using your data structure
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevents page reload
+
+          // Your original data script structure (now runs when the user clicks submit)
+          const data = {
+            accessKey: "64e9b3f2-0f32-49dd-b3cc-82daeaa2b6ff",
+            subject: "career inquiry",
+            from_name: "QMORZ Careers",
+            name: document.getElementById("name") ? document.getElementById("name").value : "",
+            email: document.getElementById("email") ? document.getElementById("email").value : "",
+            phone: document.getElementById("phone") ? document.getElementById("phone").value : "",
+            category: document.getElementById("category") ? document.getElementById("category").value : "",
+            message: document.getElementById("message") ? document.getElementById("message").value : ""
+          };
+
+          // Web3Forms expects 'access_key' instead of 'accessKey'
+          data.access_key = data.accessKey;
+
+          // Send data to Web3Forms API
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(async (response) => {
+            if (response.status === 200) {
+              alert("Application submitted successfully!");
+              form.reset();
+            } else {
+              const json = await response.json();
+              alert(json.message || "Something went wrong.");
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            alert("Form submission failed.");
+          });
+        });
+      }
     });
   </script>
 </body>
